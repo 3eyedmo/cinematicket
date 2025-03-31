@@ -1,0 +1,11 @@
+Django==5.1.7
+Djangorestframework==3.15.2
+pillow==11.1.0
+django-cors-headers==4.7.0
+djangorestframework-simplejwt==5.5.0
+python-dotenv==1.1.0
+drf-spectacular==0.28.0
+pytest==8.3.5
+pytest-django==4.10.0
+factory-boy==3.3.3
+pytest-mock==3.14.0
