@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
@@ -12,7 +14,10 @@ class ListMovieAPIView(generics.ListAPIView):
 
     def get_queryset(self):
         room_id = self.kwargs.get("room_id")
-        return Movie.objects.filter(schedule__room_id=room_id).distinct()
+        now = timezone.now()
+        return Movie.objects.filter(
+            schedule__room_id=room_id, schedule__start_time__gt=now
+        ).distinct()
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
